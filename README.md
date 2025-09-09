@@ -79,6 +79,36 @@ streamlit run rag_agent/main.py
 
 Open your browser to **http://localhost:8501**
 
+## 🐳 Docker Installation
+
+### Quick Start with Pre-built Image
+
+```bash
+# Pull and run from GitHub Container Registry
+./run-from-github.sh
+
+# Or manually:
+docker pull ghcr.io/michaelyuwh/rag-agent:latest
+docker run -p 8501:8501 ghcr.io/michaelyuwh/rag-agent:latest
+```
+
+### Build Locally
+
+```bash
+# Single container
+docker build -t rag-agent .
+docker run -p 8501:8501 rag-agent
+
+# Full stack with Ollama
+docker-compose up -d
+```
+
+**Access URLs:**
+- RAG Agent: http://localhost:8501
+- Ollama API: http://localhost:11434
+
+📋 **See [DOCKER_GUIDE.md](DOCKER_GUIDE.md) for complete deployment options**
+
 ## 🤖 AI Model Setup
 
 ### 🏠 Local Models (Privacy-First)
