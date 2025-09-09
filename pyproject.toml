@@ -1,0 +1,91 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "rag-agent"
+version = "1.0.0"
+description = "A Python-based RAG agent for development tasks"
+readme = "README.md"
+license = {file = "LICENSE"}
+authors = [
+    {name = "RAG Agent Team"},
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+]
+requires-python = ">=3.11"
+dependencies = [
+    # Core dependencies
+    "langchain>=0.3.27",
+    "langchain-community>=0.3.29",
+    "langchain-core>=0.3.75",
+    "langchain-text-splitters>=0.3.11",
+    # Model integrations
+    "langchain-ollama>=0.3.7",
+    "langchain-openai>=0.3.32",
+    "langchain-anthropic>=0.3.19",
+    "langchain-chroma>=0.2.5",
+    # Embeddings (updated)
+    "langchain-huggingface>=0.1.0",
+    # UI and web framework
+    "streamlit>=1.49.0",
+    # Vector store and embeddings
+    "chromadb>=1.0.20",
+    "sentence-transformers>=5.1.0",
+    # Document parsing
+    "pypdf>=6.0.0",
+    "docx2txt>=0.9",
+    "pandas>=2.3.0",
+    "openpyxl>=3.1.0",
+    # System utilities
+    "psutil>=7.0.0",
+    "requests>=2.32.0",
+    # Security
+    "cryptography>=41.0.0",
+    # File uploads
+    "python-multipart>=0.0.20",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.24.0",
+    "pytest-cov>=6.0.0",
+    "flake8>=7.0.0",
+    "black>=24.0.0",
+    "isort>=5.13.0",
+    "mypy>=1.11.0",
+]
+test = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.24.0",
+    "pytest-cov>=6.0.0",
+    "pytest-mock>=3.12.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/yourusername/rag-agent"
+Repository = "https://github.com/yourusername/rag-agent"
+Issues = "https://github.com/yourusername/rag-agent/issues"
+
+[project.scripts]
+rag-agent = "rag_agent.main:main"
+
+[tool.black]
+line-length = 88
+target-version = ['py310']
+
+[tool.isort]
+profile = "black"
+line_length = 88
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
